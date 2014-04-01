@@ -1,0 +1,38 @@
+<div style="border-radius:15px; text-align:center; padding:10px; margin-top: 40px;background:lightblue;">
+<h1>The Amazing Recipe Maker</h1>
+</div>
+
+<div style="border-radius:15px;text-align:center; margin-top: 40px; background:#ff9900; color: red;">
+  
+  <br>
+  <%= form_for @recipe do |f| %>
+    <div style="margin: 15px 0 0 0;">
+    <%= f.label(:recipe_name) %>
+    <%= f.text_field(:recipe_name, id: "recipe_name") %>
+    </div>
+    <br>
+    <div style="margin: 15px 0 0 0;">
+    <%= f.label(:author) %>
+    <%= f.text_field(:author) %>
+    </div>
+    <br>
+    <div style="margin: 15px 0 0 0;">
+    <%= f.label(:cooking_time) %>
+    <%= f.select(:cooking_time, [5,10,15,20,25,30]) %>
+    </div>
+    <br> 
+    <div style="margin: 15px 0 0 0;">
+    <%= f.label(:serves) %>
+    <%= f.select(:serves, [1,2,3,4,5,6,7,8]) %>
+    </div>
+    <br>
+    <div style="margin: 15px 0 40px 0;">
+    <%= f.label(:difficulty) %>
+    <%= f.select(:difficulty, ["Easy", "Medium", "Hard"]) %>
+    </div>
+
+    <%= f.submit %>
+    
+
+<% end %>
+</div>
