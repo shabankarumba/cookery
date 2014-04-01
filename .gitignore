@@ -22,3 +22,8 @@ config/secrets.yml
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
+# No pairing files should be commited
+.pairs
+
+#Remove DS_Store files
+.DS_Store
