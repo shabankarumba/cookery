@@ -12,6 +12,13 @@
  *= require_tree .
  */
 
-html {
-  background-color: black;
+ body {
+  background-color: #3BD7CC!important;
+  color: #f9f9f9!important;
+ }
+ 
+.form {
+  border-radius: 15px;
+  background: #3B3DD7;
+  padding: 10px; 
 }
