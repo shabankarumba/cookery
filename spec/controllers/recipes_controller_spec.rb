@@ -8,7 +8,7 @@ describe RecipesController do
   end
 
   it "has a show action" do
-    @recipe = Recipe.create
+    @recipe = FactoryGirl.create(:recipe)
     get :show, id: @recipe.id
     response.should be_ok
   end
