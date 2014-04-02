@@ -15,10 +15,20 @@ describe RecipesController do
 
   describe "POST #create" do
     describe "with valid params" do
+      let(:valid_params) do
+        { recipe: { recipe_name: "Omelette", author: "Steven Lee", cooking_time: 10, serves: 2, difficulty: "easy", ingredients_attributes: [{ ingredient_name: "Egg", quantity: 3, unit: "small" }] } }
+      end
+
       it "saves a record" do
         expect {
-          post :create, recipe: { recipe_name: "Omelette", author: "Steven Lee", cooking_time: 10, serves: 2, difficulty: "easy"}
+          post :create, valid_params
         }.to change{ Recipe.count }.from(0).to(1)   
+      end
+
+      it "saves a new ingredient" do 
+        expect {
+          post :create, valid_params
+        }.to change{ Ingredient.count }.from(0).to(1) 
       end
     end
     
