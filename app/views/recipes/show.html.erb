@@ -1,1 +1,17 @@
+<h1>Recipes</h1>
+<div class="container">
+
 <%= @recipe.recipe_name %>
+<%= @recipe.author %>
+<%= @recipe.cooking_time%>
+<%= @recipe.serves %>
+<%= @recipe.difficulty %>
+
+<%= ingredients.each do |ingredient| %>
+<%= ingredient.ingredient_name %>
+<%= ingredient.quantity %>
+<%= ingredient.unit %>
+<%= end %>
+
+</div>
+
