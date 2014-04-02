@@ -18,7 +18,13 @@ describe Recipe do
     end
 
     it "the presence of cooking time" do
+      subject.cooking_time = 34
       subject.should have(1).error_on(:cooking_time)
+    end
+
+    it "the presence of cooking time" do
+      subject.serves = 9
+      subject.should have(1).error_on(:serves)
     end
   end  
 end

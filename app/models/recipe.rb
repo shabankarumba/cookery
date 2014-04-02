@@ -1,5 +1,5 @@
 class Recipe < ActiveRecord::Base
-  validates :recipe_name, uniqueness: {scope: :author}
+  validates :recipe_name, presence: true, uniqueness: {scope: :author}
   validates :difficulty, presence: true
   validates :author, presence: true
   validates :cooking_time, inclusion: { in: [ 5,10,15,20,25,30 ] }
