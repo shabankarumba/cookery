@@ -10,7 +10,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+ <div class="container">
+  <%= form_tag("/", method: "get") do %>
+  <%= label_tag(:query, "search") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search", name: nil) %>
+<% end %>
+  </div> 
+  
 <%= yield %>
 
 </body>

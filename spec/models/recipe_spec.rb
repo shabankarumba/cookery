@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe Recipe do
+  before do
+    @recipe = FactoryGirl.create(:recipe)
+  end
   describe "validations" do
     it "the presence of name" do
       same_author = Recipe.create(recipe_name: "Omelette", author: "Steven Lee", cooking_time: 10, serves: 2, difficulty: "easy")
@@ -27,4 +30,10 @@ describe Recipe do
       subject.should have(1).error_on(:serves)
     end
   end  
+  describe "#search" do
+    it "searches recipes based on ingredients entered" do
+      Recipe.search("milk").should eq [ @recipe ]
+    end
+  end
 end
+

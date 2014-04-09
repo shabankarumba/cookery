@@ -1,5 +1,9 @@
 class RecipesController < ApplicationController
 
+  def index
+    @recipes = Recipe.search(params[:query])
+  end
+
   def new
     @recipe = Recipe.new
     @recipe.ingredients.build
@@ -11,7 +15,6 @@ class RecipesController < ApplicationController
   
   def create
    @recipe = Recipe.new(recipe_params)
-   # @recipe.ingredients.build
     if @recipe.valid?
       @recipe.save
       redirect_to @recipe

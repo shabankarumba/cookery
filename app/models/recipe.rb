@@ -8,4 +8,12 @@ class Recipe < ActiveRecord::Base
   validates :serves, inclusion: { in: [ 1,2,3,4,5,6,7,8 ] }
 
   accepts_nested_attributes_for :ingredients
+
+  def self.search(search)
+    if search
+      joins(:ingredients).where("ingredients.ingredient_name LIKE ?", "%#{search}%")
+    else
+      find(:all)
+    end
+  end
 end

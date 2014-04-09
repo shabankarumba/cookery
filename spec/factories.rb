@@ -1,7 +1,9 @@
 FactoryGirl.define do
 
   factory :recipe do
-    recipe_name "Omelette"
+    sequence :recipe_name do |n| 
+      "Omelette#{n}"
+    end
     author "Steven Lee"
     cooking_time 10
     serves 2
@@ -9,8 +11,10 @@ FactoryGirl.define do
   end
 
   factory :ingredient do
-    ingredient_name "Egg"
+    ingredient_name "milk"
     quantity 3
     unit "Small"
+    recipe
   end
+
 end
