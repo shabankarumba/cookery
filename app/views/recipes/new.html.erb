@@ -44,7 +44,7 @@
         <%= f.select(:difficulty, ["Easy", "Medium", "Hard"]) %>
       </div>
 
-      <%= f.fields_for :ingredients_attributes do |ingredient_form| %>
+      <%= f.fields_for :ingredients do |ingredient_form| %>
         <div class="form-group">
           <%= ingredient_form.label(:ingredient_name) %>
           <%= ingredient_form.text_field(:ingredient_name, :id  => "ingredient-name") %>
@@ -59,8 +59,8 @@
           <%= ingredient_form.label(:unit) %>
           <%= ingredient_form.text_field(:unit, :id => "ingredient-unit") %>
         </div>
-      <% end %>
 
+      <% end %>
 
       <br>
       <%= f.submit "Create" , :class => "btn btn-primary btn-lg" %>

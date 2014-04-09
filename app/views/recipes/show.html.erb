@@ -1,17 +1,17 @@
 <h1>Recipes</h1>
 <div class="container">
 
-<%= @recipe.recipe_name %>
-<%= @recipe.author %>
-<%= @recipe.cooking_time%>
-<%= @recipe.serves %>
-<%= @recipe.difficulty %>
-
-<%= ingredients.each do |ingredient| %>
-<%= ingredient.ingredient_name %>
-<%= ingredient.quantity %>
-<%= ingredient.unit %>
-<%= end %>
+<h4>Recipe: <%= @recipe.recipe_name %></h4>
+<h5>Author: <%= @recipe.author %></h5>
+<h5>Cooking Time: <%= @recipe.cooking_time%></h5>
+<h5>Serves: <%= @recipe.serves %></h5>
+<h5>Difficulty: <%= @recipe.difficulty %></h5>
+<hr>
+<% @recipe.ingredients.each do |ingredient| %>
+<p>Ingredient Name: <%= ingredient.ingredient_name %></p>
+<p>Quantity: <%= ingredient.quantity %></p>
+<p>Unit: <%= ingredient.unit %></p>
+<% end %>
 
 </div>
 
