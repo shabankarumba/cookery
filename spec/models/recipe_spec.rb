@@ -1,9 +1,11 @@
 require 'spec_helper'
 
 describe Recipe do
+  subject { FactoryGirl.create(:recipe) }
   before do
-    @recipe = FactoryGirl.create(:recipe)
+    FactoryGirl.create(:ingredient, recipe_id: subject.id)
   end
+
   describe "validations" do
     it "the presence of name" do
       same_author = Recipe.create(recipe_name: "Omelette", author: "Steven Lee", cooking_time: 10, serves: 2, difficulty: "easy")
@@ -13,10 +15,12 @@ describe Recipe do
     end
 
     it "the presence of difficulty" do
+      subject.difficulty = ""
       subject.should have(1).error_on(:difficulty)
     end
 
     it "the presence of author" do
+      subject.author = ""
       subject.should have(1).error_on(:author)
     end
 
@@ -32,7 +36,7 @@ describe Recipe do
   end  
   describe "#search" do
     it "searches recipes based on ingredients entered" do
-      Recipe.search("milk").should eq [ @recipe ]
+      Recipe.search("milk").should eq [ subject ]
     end
   end
 end
